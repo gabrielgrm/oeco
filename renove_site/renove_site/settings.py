@@ -72,6 +72,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'renove_site.wsgi.application'
 
 

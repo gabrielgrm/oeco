@@ -108,7 +108,23 @@
             position: absolute;
             bottom: 20px;
         }
+        .calendar {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .buttons a {
+            padding: 1rem 2rem;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
 </head>
 <body>
     <div class="hidden-header" id="hidden-header">
@@ -149,13 +165,22 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <h1>Bem-vindo(a), {{ user.first_name }}</h1>
+        <div class="calendar" id="calendar"></div>
+        <div class="buttons">
+            <a href="{% url 'view_appointments' %}">Conferir Agendamentos</a>
+            <a href="{% url 'new_appointment' %}">Novo Agendamento</a>
+        </div>
+    </div>
+
     <script>
         function scrollToSection2() {
             var section2 = document.getElementById('section-2');
             section2.style.display = 'flex';
             section2.scrollIntoView({ behavior: 'smooth' });
         }
-
+    
         window.addEventListener('scroll', function() {
             var section2 = document.getElementById('section-2');
             var section1Height = document.querySelector('.section-1').offsetHeight;
@@ -167,6 +192,31 @@
                 hiddenHeader.style.display = 'none';
             }
         });
+    
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                // Configurações do FullCalendar
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                editable: true,
+                events: [
+                    // Eventos de exemplo
+                    {
+                        title: 'Evento 1',
+                        start: '2024-06-12'
+                    },
+                    {
+                        title: 'Evento 2',
+                        start: '2024-06-13',
+                        end: '2024-06-15'
+                    }
+                ]
+            });
+        });
     </script>
-</body>
-</html>
+    </body>
+    </html>
+    

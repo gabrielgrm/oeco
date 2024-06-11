@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+        }
+        .calendar {
+            margin: 2rem 0;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+        .buttons a {
+            padding: 1rem 2rem;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo(a), {{ user.first_name }}</h1>
+        <div class="calendar" id="calendar"></div>
+        <div class="buttons">
+            <a href="{% url 'view_appointments' %}">Conferir Agendamentos</a>
+            <a href="{% url 'new_appointment' %}">Novo Agendamento</a>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                // Configurações do FullCalendar
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                editable: true,
+                events: [
+                    // Eventos de exemplo
+                    {
+                        title: 'Evento 1',
+                        start: '2024-06-12'
+                    },
+                    {
+                        title: 'Evento 2',
+                        start: '2024-06-13',
+                        end: '2024-06-15'
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>
