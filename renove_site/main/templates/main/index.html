@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renove Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+        .section-1 {
+            background-image: url("{% static 'images/fundoRenove.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+            color: white;
+        }
+        .section-2 {
+            background-color: #ffffff;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            display: none;
+            height: 100vh;
+        }
+        .hidden-header {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: space-between;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .header a.planos {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            max-width: 1200px;
+        }
+        .text-content {
+            max-width: 500px;
+            text-align: left;
+        }
+        .text-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .text-content p, .text-content ul {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .text-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        .text-content ul li {
+            margin-bottom: 10px;
+        }
+        .text-content .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .circle-image {
+            max-width: 400px;
+        }
+        .scroll-button {
+            margin-top: 20px;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #4CAF50;
+            cursor: pointer;
+            position: absolute;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hidden-header" id="hidden-header">
+        <div class="header">
+            <div>
+                <a href="#">Sobre nós</a>
+                <a href="#">Preços</a>
+                <a href="#">Depoimentos</a>
+            </div>
+            <div>
+                <a href="#" class="planos">PLANOS</a>
+                <a href="#">Entrar</a>
+            </div>
+        </div>
+    </div>
+    <div class="section section-1">
+        <div class="content">
+            <div class="text-content">
+                <img src="{% static 'images/renoveLogo.png' %}" alt="Renove Logo">
+            </div>
+        </div>
+        <div class="scroll-button" onclick="scrollToSection2()"></div>
+    </div>
+    <div class="section section-2" id="section-2">
+        <div class="content">
+            <div class="text-content">
+                <h1>Renove suas práticas, Renove o mundo.</h1>
+                <p>A Renove oferece aos seus clientes:</p>
+                <ul>
+                    <li>Catalogação e organização de resíduos sólidos</li>
+                    <li>Transporte e alocação de resíduos</li>
+                    <li>Reciclagem e descarte devido ao lixo eletrônico</li>
+                </ul>
+                <a href="#" class="button">ACESSAR PLANOS</a>
+            </div>
+            <div class="circle-image">
+                <img src="{% static 'images/subTitle.png' %}" alt="Sub Título">
+            </div>
+        </div>
+    </div>
+    <script>
+        function scrollToSection2() {
+            var section2 = document.getElementById('section-2');
+            section2.style.display = 'flex';
+            section2.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        window.addEventListener('scroll', function() {
+            var section2 = document.getElementById('section-2');
+            var section1Height = document.querySelector('.section-1').offsetHeight;
+            var hiddenHeader = document.getElementById('hidden-header');
+            if (window.scrollY >= section1Height) {
+                section2.style.display = 'flex';
+                hiddenHeader.style.display = 'flex';
+            } else {
+                hiddenHeader.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
