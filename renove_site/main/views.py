@@ -42,3 +42,6 @@ def new_appointment(request):
     else:
         form = AppointmentForm()
     return render(request, 'main/new_appointment.html', {'form': form})
+
+def comprovante(request):
+    return render(request, 'comprovante.html')

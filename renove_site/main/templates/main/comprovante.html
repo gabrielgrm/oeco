@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comprovantes</title>
+<style>
+    body, html {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    header nav ul {
+        list-style-type: none;
+        background-color: #8BC34A;
+        padding: 10px;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-around;
+    }
+    header nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+    .main-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .filter-section {
+        background-color: #AED581;
+        padding: 20px;
+        width: 20%;
+    }
+    .comprovantes {
+        width: 75%;
+        padding: 20px;
+    }
+    .comprovante-list {
+        background-color: #C8E6C9;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .comprovante {
+        background-color: #DCEDC8;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .search-bar input[type="search"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    button {
+        display: block;
+        margin: 10px 0;
+        padding: 10px;
+        width: 100%;
+    }
+    .filter label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .filter input[type="range"] {
+        width: 100%;
+    }
+</style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="#">Sobre Nós</a></li>
+            <li><a href="#">Calendário</a></li>
+            <li><a href="#">Certificados</a></li>
+            <li><a href="#">Suporte</a></li>
+            <li><a href="#">Planos</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="main-container">
+    <aside class="filter-section">
+        <h2>Filtrar Por</h2>
+        <div class="filter">
+            <label for="value">Valor:</label>
+            <input type="range" id="value" min="0" max="50000">
+        </div>
+        <div class="filter">
+            <label for="date">Data:</label>
+            <input type="range" id="date" min="2023" max="2024">
+        </div>
+        <button>Mais Recente</button>
+        <button>Maior Valor</button>
+        <button>Mais Antiga</button>
+        <button>Menor Valor</button>
+    </aside>
+    <section class="comprovantes">
+        <h2>Comprovantes</h2>
+        <div class="search-bar">
+            <input type="search" placeholder="Search">
+        </div>
+        <div class="comprovante-list">
+            <!-- Repeated for each comprovante -->
+            <div class="comprovante">
+                <h3>COMP. 24.03.24</h3>
+                <p>efetivado em: 18/03/2023</p>
+                <p>Valor: R$ 3388,00</p>
+            </div>
+            <!-- Additional comprovante entries here -->
+        </div>
+    </section>
+</div>
+</body>
+</html>

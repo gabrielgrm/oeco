@@ -277,10 +277,109 @@
             </table>
         </div>
         <div class="btn-container">
-            <button class="btn">TODOS OS COMPROVANTES</button>
+            <a href="{% url 'comprovante' %}" class="btn">TODOS OS COMPROVANTES</a>
         </div>
     </div>
-
+    <title>Rodapé</title>
+    <style>
+        .footer {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .footer .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+        .footer .container div {
+            margin: 10px 0;
+        }
+        .footer .container div h3 {
+            margin-bottom: 10px;
+        }
+        .footer .container div p,
+        .footer .container div a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .footer .social-icons a {
+            margin: 0 10px;
+        }
+        .footer .social-icons img {
+            width: 20px;
+            height: 20px;
+        }
+        .footer .copyright {
+            margin-top: 20px;
+            border-top: 1px solid white;
+            padding-top: 10px;
+            font-size: 0.8em;
+        }
+        .footer .legal-links a {
+            color: white;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="footer">
+        <div class="container">
+            <div>
+                <img src="logo.png" alt="Logo" style="width:50px;">
+                <p>Todos os produtos Renove são propriedade intelectual da Oeco™</p>
+                <div class="social-icons">
+                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                    <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="#"><img src="youtube-icon.png" alt="YouTube"></a>
+                </div>
+            </div>
+            <div>
+                <h3>Produto</h3>
+                <a href="#">Serviços</a>
+                <a href="#">Preços</a>
+                <a href="#">Estudos</a>
+                <a href="#">Avaliações</a>
+                <a href="#">Atualizações</a>
+            </div>
+            <div>
+                <h3>Empresa</h3>
+                <a href="#">Sobre nós</a>
+                <a href="#">Contato</a>
+                <a href="#">Blog</a>
+            </div>
+            <div>
+                <h3>Suporte</h3>
+                <a href="#">Centro de Ajuda</a>
+                <a href="#">Reportar Bug</a>
+                <a href="#">Chat</a>
+            </div>
+            <div>
+                <h3>Contato</h3>
+                <p><a href="mailto:renove.contato@gmail.com">renove.contato@gmail.com</a></p>
+                <p><a href="tel:+5581999443443">+55 (81) 99944-3443</a></p>
+                <p>Av. Rui Barbosa 238, Graças, Recife.</p>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright © 2024 Grupo Oeco. Todos os direitos reservados.
+            <div class="legal-links">
+                <a href="#">Terms and Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+</body>
+</html>
     <script>
         function scrollToSection2() {
             var section2 = document.getElementById('section-2');
